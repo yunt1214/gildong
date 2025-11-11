@@ -1,0 +1,452 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Malgun Gothic', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* 다크모드 스타일 */
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+}
+
+/* 헤더 영역 */
+header {
+    background-color: #fff;
+    padding: 20px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: background-color 0.3s;
+}
+
+body.dark-mode header {
+    background-color: #2d2d2d;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 28px;
+    transition: color 0.3s;
+}
+
+body.dark-mode h1 {
+    color: #e0e0e0;
+}
+
+/* 네비게이션 메뉴 */
+nav {
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #555;
+    font-size: 16px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #e8e8e8;
+    color: #2c3e50;
+}
+
+body.dark-mode nav ul li a {
+    color: #b0b0b0;
+}
+
+body.dark-mode nav ul li a:hover {
+    background-color: #404040;
+    color: #fff;
+}
+
+/* 메인 콘텐츠 영역 */
+main {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* 일기 작성 폼 */
+.diary-form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: background-color 0.3s;
+}
+
+body.dark-mode .diary-form {
+    background-color: #2d2d2d;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #2c3e50;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+body.dark-mode .form-group label {
+    color: #e0e0e0;
+}
+
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: inherit;
+    background-color: #fff;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+body.dark-mode .form-group input[type="text"],
+body.dark-mode .form-group input[type="date"],
+body.dark-mode .form-group textarea {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    border-color: #555;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="date"]:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+body.dark-mode .form-group input[type="text"]:focus,
+body.dark-mode .form-group input[type="date"]:focus,
+body.dark-mode .form-group textarea:focus {
+    border-color: #5dade2;
+}
+
+.form-group textarea {
+    min-height: 200px;
+    resize: vertical;
+}
+
+.submit-btn {
+    background-color: #3498db;
+    color: #fff;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #2980b9;
+}
+
+.btn-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* 다크모드 토글 버튼 */
+.dark-mode-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    transition: background-color 0.3s, transform 0.2s;
+    z-index: 1000;
+}
+
+.dark-mode-toggle:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+body.dark-mode .dark-mode-toggle {
+    background-color: #5dade2;
+}
+
+body.dark-mode .dark-mode-toggle:hover {
+    background-color: #3498db;
+}
+
+h2 {
+    transition: color 0.3s;
+}
+
+body.dark-mode h2 {
+    color: #e0e0e0;
+}
+
+/* 일기 목록 영역 */
+.diary-list {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-top: 30px;
+    transition: background-color 0.3s;
+}
+
+body.dark-mode .diary-list {
+    background-color: #2d2d2d;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.diary-item {
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.diary-item:hover {
+    background-color: #f8f9fa;
+    border-color: #3498db;
+}
+
+body.dark-mode .diary-item {
+    border-color: #555;
+}
+
+body.dark-mode .diary-item:hover {
+    background-color: #404040;
+    border-color: #5dade2;
+}
+
+.diary-item-title {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 5px;
+    transition: color 0.3s;
+}
+
+body.dark-mode .diary-item-title {
+    color: #e0e0e0;
+}
+
+.diary-item-date {
+    font-size: 14px;
+    color: #888;
+    transition: color 0.3s;
+}
+
+body.dark-mode .diary-item-date {
+    color: #b0b0b0;
+}
+
+.diary-item-preview {
+    font-size: 14px;
+    color: #666;
+    margin-top: 8px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    transition: color 0.3s;
+}
+
+body.dark-mode .diary-item-preview {
+    color: #b0b0b0;
+}
+
+/* 일기 상세 보기 모달 */
+.diary-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.diary-modal.active {
+    display: flex;
+}
+
+.diary-modal-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    transition: background-color 0.3s;
+}
+
+body.dark-mode .diary-modal-content {
+    background-color: #2d2d2d;
+}
+
+.diary-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.diary-modal-title {
+    font-size: 24px;
+    color: #2c3e50;
+    transition: color 0.3s;
+}
+
+body.dark-mode .diary-modal-title {
+    color: #e0e0e0;
+}
+
+.diary-modal-date {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 20px;
+    transition: color 0.3s;
+}
+
+body.dark-mode .diary-modal-date {
+    color: #b0b0b0;
+}
+
+.diary-modal-body {
+    color: #333;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    transition: color 0.3s;
+}
+
+body.dark-mode .diary-modal-body {
+    color: #e0e0e0;
+}
+
+.close-btn {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.close-btn:hover {
+    background-color: #c0392b;
+}
+
+.empty-message {
+    text-align: center;
+    color: #888;
+    padding: 40px;
+    transition: color 0.3s;
+}
+
+body.dark-mode .empty-message {
+    color: #b0b0b0;
+}
+
+/* 폰트 크기 조절 버튼 */
+.font-size-controls {
+    position: fixed;
+    top: 20px;
+    right: 180px;
+    display: flex;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.font-size-btn {
+    background-color: #27ae60;
+    color: #fff;
+    border: none;
+    padding: 12px 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    transition: background-color 0.3s, transform 0.2s;
+    min-width: 45px;
+}
+
+.font-size-btn:hover {
+    background-color: #229954;
+    transform: scale(1.05);
+}
+
+body.dark-mode .font-size-btn {
+    background-color: #52be80;
+}
+
+body.dark-mode .font-size-btn:hover {
+    background-color: #27ae60;
+}
+
+/* 폰트 크기 조절 클래스 */
+body.font-small {
+    font-size: 14px;
+}
+
+body.font-normal {
+    font-size: 16px;
+}
+
+body.font-large {
+    font-size: 18px;
+}
+
+body.font-xlarge {
+    font-size: 20px;
+}
+
